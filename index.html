@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div class="main-body">
+        <nav id="navbar">
+            <header>Documentation Menu</header>
+            <a href="#Intro" class="nav-link">API Documentation</a>
+            <a href="#Object" class="nav-link">CMS Webflow</a>
+        </nav>
+
+        <main id="main-doc">
+            <section class="main-section" id="Intro">
+                <header>
+                    API Documentation Webflow
+                </header>
+                <h3>Base URL :<code>https://api.webflow.com</code></h3>
+                <h3>API Key: <code>8796bbb68373a25da6e4799acd1b06ffd6cc8ced06efbab0e36b766f6eceb98a</code></h3>
+                <h3>site_id: <code>6284e630308338249553956f</code></h3>
+                <h3>How to get content on this webflow platform</h3>
+                <h4>1. Find collection ID </h4>
+                <p> To find collection ID, you can access with: <br><br>
+                    <code>curl --request GET \
+                        --url {baseurl}/sites/:site_id/collections \
+                        --header 'Accept-Version: 1.0.0' \
+                        --header 'Authorization: Bearer {api_key}'</code><br>and the response you will get is as below:
+                <pre>
+                <code>
+[
+    {
+        "_id": "6284e631308338139653957b",
+        "lastUpdated": "2022-07-14T15:56:22.350Z",
+        "createdOn": "2019-06-12T13:35:14.238Z",
+        "name": "SKUs",
+        "slug": "sku",
+        "singularName": "SKU"
+    },
+    {
+        "_id": "6284e631308338476753957a",
+        "lastUpdated": "2022-05-18T12:27:51.149Z",
+        "createdOn": "2019-06-12T13:35:14.238Z",
+        "name": "Products",
+        "slug": "product",
+        "singularName": "Product"
+    },
+    {
+        "_id": "6284e6313083388f6953957c",
+        "lastUpdated": "2022-06-15T14:45:29.371Z",
+        "createdOn": "2019-08-30T08:37:39.578Z",
+        "name": "Insights Posts",
+        "slug": "insights",
+        "singularName": "Insights Post"
+    },
+    {
+        "_id": "6284e631308338c7de539579",
+        "lastUpdated": "2022-05-18T12:27:51.151Z",
+        "createdOn": "2019-06-12T13:35:14.238Z",
+        "name": "Categories",
+        "slug": "category",
+        "singularName": "Category"
+    }
+]
+                </code>
+            </pre>
+            Content is stored in a collection named Insights Post where the collection_id is 6284e6313083388f6953957c
+                </p>
+                <h4>2. Find all content </h4>
+                <p> To find all content, you can access with: <br><br>
+                    <code>curl --request GET \
+                        --url '{baseurl}/collections/:collection_id/items?offset=1&limit=2' \
+                        --header 'Accept-Version: 1.0.0' \
+                        --header 'Authorization: Bearer {access_token}'</code><br>and the response you will get is as below:
+                    <pre>
+                        <code>
+{
+    "items": [
+        {
+            "_archived": false,
+            "_draft": false,
+            "post-url": "http://www.simpaninvest.com/insights/",
+            "featured": true,
+            "author": "Julian Thio",
+            "name": "What is an Investment Portfolio?",
+            "post-body": "<p>A portfolio is a collection of financial assets, such as stocks, bonds, cash, real estate, mutual funds, exchange-traded funds (ETFs) or alternative investments.</p><p>Portfolios provide a framework for your money and investment goals. They’re built to help you oversee and manage your investments and the risks associated to investing. Portfolios help investors diversify across different assets based on each investors’ risk profile.</p><p>If you want, a portfolio can help you diversify your assets, spreading them across funds, stocks, bonds, and other purposes. Monitoring your portfolio by each asset class can help you determine whether your strategy is working for you. Over time, you might decide to buy more of certain assets, or sell others.</p><p>‍</p><p><strong>Considerations in Building a Portfolio</strong></p><p>‍</p><p>Building a basic portfolio can be as simple as buying a few stocks or buying a diversified portfolio of funds that consist of stocks, bonds and sometimes other asset classes.</p><p>There are three main ways to build an actual portfolio:</p><p>‍</p><ol><li>Pick individual assets yourself</li></ol><ol start=\"2\"><li>Invest in a portfolio of actively managed mutual fund or exchange-traded fund; or</li></ol><ol start=\"3\"><li>Hire a financial advisor to choose investments for you.</li></ol><p>‍</p><p>Two keys to building a portfolio are:</p><ol><li>Knowing your risk tolerance, and</li></ol><ol start=\"2\"><li>Understanding your time horizon.</li></ol><p>‍</p><p>These parameters can help begin to determine what types of investments you have in your portfolio. And typically, they work in tandem. For instance, investors with longer time horizons (e.g., people with more years until retirement) typically have a greater risk tolerance than short-term investors, who expect to sell their assets sooner.</p><p>‍</p><p><strong>High risk and a long time horizon</strong> Aggressive investors with longer time horizons tend to buy assets like stocks. That’s because these generally offer greater upside, although they’re often more volatile and risky as well.</p><p>‍</p><p><strong>Low risk and a short time horizon</strong> Conservative investors are more risk-averse. They usually prefer portfolios that prioritise financial stability and predictable returns. Oftentimes, conservative investors invest more of their money in income-oriented investments like bonds or dividend-paying stocks of larger, more established companies.</p><p>‍</p><p><strong>Risk: What is specific risk? What is portfolio risk?</strong></p><p>‍</p><p>In its simplest form, risk is the chance that you’ll lose money. And depending on how much you hate losing money, you might figure out your “risk tolerance.” Are you conservative? Aggressive? Somewhere in between? Depending on your risk tolerance, you might choose your asset allocation so you can stomach the rises and falls of the market. This is what institutional investors call<strong> drawdown. </strong>A drawdown is a high-to-low decline during a specific period for an investment.</p><p>‍</p><p><strong>Specific risk </strong>Individual stocks carry “specific risk.” This is the chance that something negative happens that affects one company (e.g., the CEO departs, a major supplier goes bankrupt, or there’s a product recall). Individual assets, like bonds, also have specific risk.</p><p>‍</p><p><strong>Portfolio risk </strong>But there’s also a chance that a segment of your portfolio, or even your entire portfolio, could decline simultaneously. (This could happen during a recession, or if you’ve concentrated your investments in a single industry.) The risk associated with your entire portfolio partially depends on your asset allocation and it’s called “portfolio risk.”</p><p>‍</p><p>A concentrated portfolio can be more volatile than a diversified one, and it runs the risk of falling more dramatically. That’s true of almost all assets — If you mostly invest in real estate, for example, and the real estate market falls broadly, your portfolio will probably decline more, too. This type of company- or industry-specific risk can be reduced through diversification.</p><p>‍</p><p>Your risk appetite is also likely based on how long it will be before you want to sell your assets. If you need or want your money sooner, you’re probably better off investing in more conservative assets. Generally though, if you have a longer time horizon, you might consider a more aggressive approach.The idea is that you might have more time to make up for any losses or near-term volatility.</p><p>‍</p><p>How does this look in the real world? Well, digging deeper, individuals who hope to buy a house soon might pursue conservative investments, limiting their portfolio to less volatile assets. But younger investors saving for retirement might choose somewhat riskier assets. While stocks tend to offer more upside than bonds over the long-term, they usually encounter higher volatility, too, so you have to be comfortable seeing more losses from time to time. Your investment choices always involve trade-offs.</p><p>‍</p><p><strong>What is a diversified portfolio?</strong></p><p>‍</p><p>A diversified portfolio can help you manage risk by spreading your investments across different assets. Typically, diversification helps reduce volatility and smooth returns. Putting all your money into a single asset class can put your portfolio at unacceptable levels of risk. For example, if you own only stocks and the stock market falls, your portfolio will likely fare worse than if you owned both stocks and bonds.</p><p>‍</p><p>That’s because most bonds tend not to fall as steeply as stocks—different factors typically drive each asset class—and bonds usually provide a predictable source of income. With a diversified portfolio, even if some assets decline, in certain conditions your other assets could continue unaffected, helping to minimise your losses. This is not always the case, as under different conditions you can experience losses across the board.</p><p>‍</p><p>Diversification doesn’t prevent losses, but it can help limit losses. Building a diversified portfolio typically involves a mix of stocks, bonds, and cash. Adding real estate, gold, currency, and other assets can make a more diversified portfolio.</p><p>‍</p><p>Even if you decide to only invest in stocks, you can achieve a measure of diversification simply by owning more than one stock. In the 1960s, stock market researchers found that as few as 10 stocks could help in the pursuit of diversification. That said, in contemporary times, many believe it takes more stocks to build a truly diversified portfolio.</p><p>‍</p><p>In addition to diversifying across asset classes, an investor might want to diversify across market segments—for instance, across the auto industry and consumer staples. Furthermore, an investor might want a mix of companies in their portfolio, providing a balance of growth-oriented companies and older, dividend-paying companies. (Remember though, diversification does not ensure a profit or eliminate the risk of investment losses.)</p><p>‍</p><p><em>Photo Credits:&nbsp;Tina Eaton, Kubera</em></p>",
+            "post-summary": "Portfolios provide a framework for your money and investment goals. They’re built to help you oversee and manage your investments and the risks associated to investing. Portfolios help investors diversify across different assets based on each investors’ risk profile.",
+            "category": "Article",
+            "estimated-reading-time": "8 minutes read",
+            "slug": "what-is-an-investment-portfolio",
+            "updated-on": "2022-06-20T06:36:34.945Z",
+            "updated-by": "Person_6284cbf124663bdb74a98343",
+            "created-on": "2022-06-20T06:11:42.860Z",
+            "created-by": "Person_6284cbf124663bdb74a98343",
+            "published-on": "2022-06-21T15:36:31.287Z",
+            "published-by": "Person_6284cbf124663bdb74a98343",
+            "author-bio": "The author is Co-Founder of Simpan. Julian has over 6 years of experience in Private Equity and Investments, and currently sits on the Investment Committee of Asiantrust Asset Management. Julian earned a Master’s Degree from the London School of Economics & Political Science, and a Bachelor’s Degree from the University of Exeter. ",
+            "author-photo": {
+                "fileId": "62b0113fd2f73027e0754255",
+                "url": "https://uploads-ssl.webflow.com/6284e63130833803d953957d/62b0113fd2f73027e0754255_Julian%20Thio.jpg",
+                "alt": null
+            },
+            "main-image": {
+                "fileId": "62b014b91879d69687efed36",
+                "url": "https://uploads-ssl.webflow.com/6284e63130833803d953957d/62b014b91879d69687efed36_Tina%20Eaton%2C%20Kubera.png",
+                "alt": null
+            },
+            "thumbnail-image": {
+                "fileId": "62b014bb1879d63873efed4c",
+                "url": "https://uploads-ssl.webflow.com/6284e63130833803d953957d/62b014bb1879d63873efed4c_Tina%20Eaton%2C%20Kubera%20small.png",
+                "alt": null
+            },
+            "_cid": "6284e6313083388f6953957c",
+            "_id": "62b00f9ee7f76352cf68b7aa"
+        }
+    ],
+    "count": 1,
+    "limit": 1,
+    "offset": 1,
+    "total": 6
+}
+                        </code>
+                    </pre>
+                The requirement property used are:<br><br>
+                <pre>
+                <code>
+{
+    name: "for judul",
+    post-body: "for description",
+    post-summary: "for post summary",
+    main-image: {
+         url: "for image"
+    },
+    created-on: "for created date",
+    updated-on: "for updated date",
+    category: "for tag"
+}           
+                 </code>
+                 </pre>
+                <h4>3. Find detail content</h4>
+                 <p>To find detail content, you can access with: <br><br>
+                    <code>curl --request GET \
+                        --url {baseurl}/collections/:collection_id/items/:item_id \
+                        --header 'Accept-Version: 1.0.0' \
+                        --header 'Authorization: Bearer {access_token}'</code><br>and the response you will get is as below:
+                        <pre>
+                            <code>
+{
+    "items": [
+        {
+            "_archived": false,
+            "_draft": false,
+            "post-url": "http://www.simpaninvest.com/insights/",
+            "featured": true,
+            "author": "Julian Thio",
+            "name": "What is an Investment Portfolio?",
+            "post-body": "<p>A portfolio is a collection of financial assets, such as stocks, bonds, cash, real estate, mutual funds, exchange-traded funds (ETFs) or alternative investments.</p><p>Portfolios provide a framework for your money and investment goals. They’re built to help you oversee and manage your investments and the risks associated to investing. Portfolios help investors diversify across different assets based on each investors’ risk profile.</p><p>If you want, a portfolio can help you diversify your assets, spreading them across funds, stocks, bonds, and other purposes. Monitoring your portfolio by each asset class can help you determine whether your strategy is working for you. Over time, you might decide to buy more of certain assets, or sell others.</p><p>‍</p><p><strong>Considerations in Building a Portfolio</strong></p><p>‍</p><p>Building a basic portfolio can be as simple as buying a few stocks or buying a diversified portfolio of funds that consist of stocks, bonds and sometimes other asset classes.</p><p>There are three main ways to build an actual portfolio:</p><p>‍</p><ol><li>Pick individual assets yourself</li></ol><ol start=\"2\"><li>Invest in a portfolio of actively managed mutual fund or exchange-traded fund; or</li></ol><ol start=\"3\"><li>Hire a financial advisor to choose investments for you.</li></ol><p>‍</p><p>Two keys to building a portfolio are:</p><ol><li>Knowing your risk tolerance, and</li></ol><ol start=\"2\"><li>Understanding your time horizon.</li></ol><p>‍</p><p>These parameters can help begin to determine what types of investments you have in your portfolio. And typically, they work in tandem. For instance, investors with longer time horizons (e.g., people with more years until retirement) typically have a greater risk tolerance than short-term investors, who expect to sell their assets sooner.</p><p>‍</p><p><strong>High risk and a long time horizon</strong> Aggressive investors with longer time horizons tend to buy assets like stocks. That’s because these generally offer greater upside, although they’re often more volatile and risky as well.</p><p>‍</p><p><strong>Low risk and a short time horizon</strong> Conservative investors are more risk-averse. They usually prefer portfolios that prioritise financial stability and predictable returns. Oftentimes, conservative investors invest more of their money in income-oriented investments like bonds or dividend-paying stocks of larger, more established companies.</p><p>‍</p><p><strong>Risk: What is specific risk? What is portfolio risk?</strong></p><p>‍</p><p>In its simplest form, risk is the chance that you’ll lose money. And depending on how much you hate losing money, you might figure out your “risk tolerance.” Are you conservative? Aggressive? Somewhere in between? Depending on your risk tolerance, you might choose your asset allocation so you can stomach the rises and falls of the market. This is what institutional investors call<strong> drawdown. </strong>A drawdown is a high-to-low decline during a specific period for an investment.</p><p>‍</p><p><strong>Specific risk </strong>Individual stocks carry “specific risk.” This is the chance that something negative happens that affects one company (e.g., the CEO departs, a major supplier goes bankrupt, or there’s a product recall). Individual assets, like bonds, also have specific risk.</p><p>‍</p><p><strong>Portfolio risk </strong>But there’s also a chance that a segment of your portfolio, or even your entire portfolio, could decline simultaneously. (This could happen during a recession, or if you’ve concentrated your investments in a single industry.) The risk associated with your entire portfolio partially depends on your asset allocation and it’s called “portfolio risk.”</p><p>‍</p><p>A concentrated portfolio can be more volatile than a diversified one, and it runs the risk of falling more dramatically. That’s true of almost all assets — If you mostly invest in real estate, for example, and the real estate market falls broadly, your portfolio will probably decline more, too. This type of company- or industry-specific risk can be reduced through diversification.</p><p>‍</p><p>Your risk appetite is also likely based on how long it will be before you want to sell your assets. If you need or want your money sooner, you’re probably better off investing in more conservative assets. Generally though, if you have a longer time horizon, you might consider a more aggressive approach.The idea is that you might have more time to make up for any losses or near-term volatility.</p><p>‍</p><p>How does this look in the real world? Well, digging deeper, individuals who hope to buy a house soon might pursue conservative investments, limiting their portfolio to less volatile assets. But younger investors saving for retirement might choose somewhat riskier assets. While stocks tend to offer more upside than bonds over the long-term, they usually encounter higher volatility, too, so you have to be comfortable seeing more losses from time to time. Your investment choices always involve trade-offs.</p><p>‍</p><p><strong>What is a diversified portfolio?</strong></p><p>‍</p><p>A diversified portfolio can help you manage risk by spreading your investments across different assets. Typically, diversification helps reduce volatility and smooth returns. Putting all your money into a single asset class can put your portfolio at unacceptable levels of risk. For example, if you own only stocks and the stock market falls, your portfolio will likely fare worse than if you owned both stocks and bonds.</p><p>‍</p><p>That’s because most bonds tend not to fall as steeply as stocks—different factors typically drive each asset class—and bonds usually provide a predictable source of income. With a diversified portfolio, even if some assets decline, in certain conditions your other assets could continue unaffected, helping to minimise your losses. This is not always the case, as under different conditions you can experience losses across the board.</p><p>‍</p><p>Diversification doesn’t prevent losses, but it can help limit losses. Building a diversified portfolio typically involves a mix of stocks, bonds, and cash. Adding real estate, gold, currency, and other assets can make a more diversified portfolio.</p><p>‍</p><p>Even if you decide to only invest in stocks, you can achieve a measure of diversification simply by owning more than one stock. In the 1960s, stock market researchers found that as few as 10 stocks could help in the pursuit of diversification. That said, in contemporary times, many believe it takes more stocks to build a truly diversified portfolio.</p><p>‍</p><p>In addition to diversifying across asset classes, an investor might want to diversify across market segments—for instance, across the auto industry and consumer staples. Furthermore, an investor might want a mix of companies in their portfolio, providing a balance of growth-oriented companies and older, dividend-paying companies. (Remember though, diversification does not ensure a profit or eliminate the risk of investment losses.)</p><p>‍</p><p><em>Photo Credits:&nbsp;Tina Eaton, Kubera</em></p>",
+            "post-summary": "Portfolios provide a framework for your money and investment goals. They’re built to help you oversee and manage your investments and the risks associated to investing. Portfolios help investors diversify across different assets based on each investors’ risk profile.",
+            "category": "Article",
+            "estimated-reading-time": "8 minutes read",
+            "slug": "what-is-an-investment-portfolio",
+            "updated-on": "2022-06-20T06:36:34.945Z",
+            "updated-by": "Person_6284cbf124663bdb74a98343",
+            "created-on": "2022-06-20T06:11:42.860Z",
+            "created-by": "Person_6284cbf124663bdb74a98343",
+            "published-on": "2022-06-21T15:36:31.287Z",
+            "published-by": "Person_6284cbf124663bdb74a98343",
+            "author-bio": "The author is Co-Founder of Simpan. Julian has over 6 years of experience in Private Equity and Investments, and currently sits on the Investment Committee of Asiantrust Asset Management. Julian earned a Master’s Degree from the London School of Economics & Political Science, and a Bachelor’s Degree from the University of Exeter. ",
+            "author-photo": {
+                "fileId": "62b0113fd2f73027e0754255",
+                "url": "https://uploads-ssl.webflow.com/6284e63130833803d953957d/62b0113fd2f73027e0754255_Julian%20Thio.jpg",
+                "alt": null
+            },
+            "main-image": {
+                "fileId": "62b014b91879d69687efed36",
+                "url": "https://uploads-ssl.webflow.com/6284e63130833803d953957d/62b014b91879d69687efed36_Tina%20Eaton%2C%20Kubera.png",
+                "alt": null
+            },
+            "thumbnail-image": {
+                "fileId": "62b014bb1879d63873efed4c",
+                "url": "https://uploads-ssl.webflow.com/6284e63130833803d953957d/62b014bb1879d63873efed4c_Tina%20Eaton%2C%20Kubera%20small.png",
+                "alt": null
+            },
+            "_cid": "6284e6313083388f6953957c",
+            "_id": "62b00f9ee7f76352cf68b7aa"
+        }
+    ],
+    "count": 1,
+    "limit": 1,
+    "offset": 1,
+    "total": 6
+}   
+                            </code>
+                        </pre>
+                        The requirement property used are:<br><br>
+                        <pre>
+                        <code>
+{
+    name: "for judul",
+    post-body: "for description",
+    post-summary: "for post summary",
+    main-image: {
+         url: "for image"
+    },
+    created-on: "for created date",
+    updated-on: "for updated date",
+    category: "for tag"
+}            
+                         </code>
+                         </pre>
+                You can visit <a href="https://developers.webflow.com/">WebFlow API Docs</a> for more detail
+                </p>
+            </section>
+
+            <section class="main-section" id="Object">
+                <header>
+                    On Progrees
+                </header>
+            </section>
+
+        </main>
+    </div>
+</body>
+
+</html>
